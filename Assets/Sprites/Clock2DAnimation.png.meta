@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clock2DAnimation_0: 3515568032680723692
+      Clock2DAnimation_1: 8416983805007420213
+      Clock2DAnimation_2: 1955985194903439796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

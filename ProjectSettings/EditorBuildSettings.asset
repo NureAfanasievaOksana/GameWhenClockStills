@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PresentCorridor.unity
     guid: fc8c50e323fca3e45a41ad6ba5b097ee
+  - enabled: 1
+    path: Assets/Scenes/PresentLibrary.unity
+    guid: 72a726b258dd9b349829da4e6045e08d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

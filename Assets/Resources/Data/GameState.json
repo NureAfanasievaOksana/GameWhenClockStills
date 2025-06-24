@@ -1,0 +1,15 @@
+{
+  "player": {
+    "current_location": "MainHall",
+    "current_time_period": "present",
+    "progress_flags": {
+      "has_lab_access": false,
+      "found_time_device": false,
+      "entered_lab": false,
+      "time_changed": false
+    }
+  },
+  "inventory": {
+    "items": []
+  }
+}

@@ -7,14 +7,14 @@ public class BusController : MonoBehaviour
 {
     [Header("Timing Settings")]
     public float idleShakeDuration = 3f;
-    public float moveDuration = 6f;
+    public float moveDuration = 5f;
     public Image fadeImage;
     public float fadeSpeed = 1f;
     public string nextSceneName = "NextScene";
 
     [Header("Movement Settings")]
-    public float moveSpeed = 2f;
-    public float endPositionX = 21f;
+    public float moveSpeed = 4f;
+    public float endPositionX = 16f;
 
     [Header("Shake Settings")]
     public float shakeAmount = 0.05f;
