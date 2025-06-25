@@ -3,7 +3,6 @@
     "current_location": "PresentCorridor",
     "current_time_period": "present",
     "progress_flags": {
-        "library_door" : false,
         "found_time_device": false,
         "first_talked_Henry": false,
         "learn_about_diary": false,

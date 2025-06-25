@@ -40,4 +40,9 @@ public class ItemsDatabase
     {
         return items.Find(item => item.item_id == id);
     }
+
+    public List<ItemData> GetAllItemsById(string id)
+    {
+        return items.FindAll(item => item.item_id == id);
+    }
 }

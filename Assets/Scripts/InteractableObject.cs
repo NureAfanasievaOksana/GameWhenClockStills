@@ -28,37 +28,60 @@ public class InteractableObject : MonoBehaviour
 
     public void Interact()
     {
-        ItemData item = database.GetItemById(itemId);
-        if (item == null) return;
+        string selectedItem = InventoryManager.Instance.GetSelectedItem();
 
-        // Перевірка станів взаємодії (Прибрати виведення тексту)
-        if (item.is_completed && !item.repeatable)
+        if (selectedItem != null)
         {
-            CommentManager.Instance.ShowMessage("Ця взаємодія вже завершена");
+            List<ItemData> possibleInteractions = database.GetAllItemsById(itemId);
+            if (possibleInteractions != null)
+            {
+                foreach (ItemData interaction in possibleInteractions)
+                {
+                    if (interaction.required_items != null && interaction.required_items.Contains(selectedItem))
+                    {
+                        if (InventoryManager.Instance.UseSelectedItem(selectedItem))
+                        {
+                            ExecuteInteraction(interaction);
+                            return;
+                        }
+                    }
+                }
+            }
+
+            CommentManager.Instance.ShowMessage("Цей предмет тут не потрібен.");
             return;
         }
 
-        // Перевірка умов розблокування (Прибрати виведення тексту)
-        if (!CheckUnlockConditions(item.unlock_conditions))
+        List<ItemData> allInteractions = database.GetAllItemsById(itemId);
+        if (allInteractions == null || allInteractions.Count == 0) return;
+
+        ItemData validInteraction = FindValidInteraction(allInteractions);
+        if (validInteraction == null)
         {
             CommentManager.Instance.ShowMessage("Я ще не знаю, що з цим робити...");
             return;
         }
 
-        if (item.type == "time_device")
-        {
-            HandleTimeChange(item);
-            return;
-        }
+        ExecuteInteraction(validInteraction);
+    }
 
-        // Перевірка необхідних предметів (Прибрати виведення тексту)
-        if (!CheckRequiredItems(item.required_items))
+    private ItemData FindValidInteraction(List<ItemData> possibleInteractions)
+    {
+        foreach (ItemData interaction in possibleInteractions)
         {
-            string missingItems = string.Join(", ", item.required_items.Except(gameState.inventory.items));
-            CommentManager.Instance.ShowMessage($"Мені потрібно: {missingItems}");
-            return;
-        }
+            if (interaction.is_completed && !interaction.repeatable) continue;
 
+            if (!CheckUnlockConditions(interaction.unlock_conditions)) continue;
+
+            if (!CheckRequiredItems(interaction.required_items)) continue;
+
+            return interaction;
+        }
+        return null;
+    }
+
+    private void ExecuteInteraction(ItemData item)
+    {
         switch (item.type)
         {
             case "pickup":
@@ -67,10 +90,6 @@ public class InteractableObject : MonoBehaviour
 
             case "inspect":
                 HandleInspect(item);
-                break;
-
-            case "use":
-                HandleUse(item);
                 break;
 
             case "open":
@@ -133,25 +152,25 @@ public class InteractableObject : MonoBehaviour
         return !requiredItems.Except(gameState.inventory.items).Any();
     }
 
-    //Прибрати виведення тексту
     private void HandlePickup(ItemData item)
     {
+        if (string.IsNullOrEmpty(item.inventory_image))
+        {
+            Debug.LogError($"No inventory_image specified for item {item.item_id}");
+            return;
+        }
+
         gameState.inventory.items.Add(item.item_id);
         item.is_completed = true;
-        CommentManager.Instance.ShowMessage($"Я взяв {item.name}");
-        gameObject.SetActive(false);
+
+        InventoryManager.Instance.AddItemToInventory(item.inventory_image, item.description);
+
+        UpdateGameState(item);
     }
 
     private void HandleInspect(ItemData item)
     {
         CommentManager.Instance.ShowMessage(item.description);
-    }
-
-    //Прибрати виведення тексту
-    private void HandleUse(ItemData item)
-    {
-        CommentManager.Instance.ShowMessage($"Використано {item.name}");
-        item.is_completed = true;
     }
 
     private void HandleOpen(ItemData item)
