@@ -29,18 +29,15 @@ public class SceneTransitionManager : MonoBehaviour
 
     private void InitializeTransitionCanvas()
     {
-        // Створюємо Canvas для затемнення
         transitionCanvas = new GameObject("TransitionCanvas").AddComponent<Canvas>();
         transitionCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
         transitionCanvas.sortingOrder = 9999;
         DontDestroyOnLoad(transitionCanvas.gameObject);
 
-        // Створюємо Image для затемнення
         fadeImage = new GameObject("FadeImage").AddComponent<Image>();
         fadeImage.transform.SetParent(transitionCanvas.transform, false);
         fadeImage.color = new Color(0, 0, 0, 0);
 
-        // Розтягуємо на весь екран
         RectTransform rt = fadeImage.GetComponent<RectTransform>();
         rt.anchorMin = Vector2.zero;
         rt.anchorMax = Vector2.one;

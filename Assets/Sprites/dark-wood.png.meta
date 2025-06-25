@@ -2013,7 +2013,7 @@ TextureImporter:
         width: 19
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2022,6 +2022,28 @@ TextureImporter:
       bones: []
       spriteID: 64cc0e3c57eb2a74399085c1f13217bf
       internalID: 1863454847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark-wood_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 769
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c2e46454defd647a19e4ed6aea06b6
+      internalID: -1483337588
       vertices: []
       indices: 
       edges: []
@@ -2041,6 +2063,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       dark-wood_0: 1863454847
+      dark-wood_1: -1483337588
       dark-wood_89: 2126702891
       dark-wood_90: 753835148
       dark-wood_91: -164572047

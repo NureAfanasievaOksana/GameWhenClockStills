@@ -18,7 +18,6 @@ public class DataManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Переконайтеся, що об'єкт у корені ієрархії
         transform.SetParent(null);
 
         InitializeData();
@@ -28,16 +27,21 @@ public class DataManager : MonoBehaviour
     {
         currentGameState = LoadFromJSON<GameState>("Data/GameState") ?? new GameState();
 
-        // Якщо це новий об'єкт, ініціалізуємо базові значення
         if (currentGameState.player == null)
         {
             currentGameState.player = new PlayerState
             {
-                current_location = "MainHall",
+                current_location = "PresentCorridor",
                 current_time_period = "present",
                 progress_flags = new ProgressFlags()
             };
         }
+        else if (currentGameState.player.progress_flags == null)
+        {
+            currentGameState.player.progress_flags = new ProgressFlags();
+        }
+
+        currentGameState.player.progress_flags.ResetAllFlags();
     }
 
     private T LoadFromJSON<T>(string path) where T : new()

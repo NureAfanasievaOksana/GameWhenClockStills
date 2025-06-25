@@ -2,19 +2,27 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
+public class UnlockCondition
+{
+    public string flagName;
+    public bool requiredValue;
+}
+
+[System.Serializable]
 public class ItemData
 {
     public string item_id;
     public string name;
     public string description;
-    public string type; // "pickup", "inspect", "use", "open", "door", "time_device"
+    public string type;
     public bool is_completed;
     public bool repeatable;
     public List<string> required_items;
     public List<string> unlock_conditions;
     public string progress_flag;
-    public string target_location; // Для дверей
-    public string target_time_period; // Для годинника
+    public string target_location;
+    public string target_time_period;
+    public string inventory_image;
 }
 
 [System.Serializable]

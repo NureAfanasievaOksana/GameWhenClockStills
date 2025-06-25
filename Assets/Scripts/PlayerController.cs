@@ -34,6 +34,13 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (hit.collider.TryGetComponent<InteractableObject>(out var interactable))
                 {
+                    ItemData item = interactable.GetItemData();
+                    if (item != null && item.type == "time_device")
+                    {
+                        interactable.Interact();
+                        return;
+                    }
+
                     _targetPosition = interactable.GetInteractionPoint();
                     _isMoving = true;
                     _animator.SetBool("isMoving", true);
@@ -46,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, _targetPosition, speed * Time.deltaTime);
 
-            // Обертання спрайту
             if (_targetPosition.x < transform.position.x)
             {
                 _spriteRenderer.flipX = true;

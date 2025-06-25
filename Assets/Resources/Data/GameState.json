@@ -1,12 +1,21 @@
 {
   "player": {
-    "current_location": "MainHall",
+    "current_location": "PresentCorridor",
     "current_time_period": "present",
     "progress_flags": {
-      "has_lab_access": false,
-      "found_time_device": false,
-      "entered_lab": false,
-      "time_changed": false
+        "library_door" : false,
+        "found_time_device": false,
+        "first_talked_Henry": false,
+        "learn_about_diary": false,
+        "talked_buttler": false,
+        "learn_about_code": false,
+        "find_key": false,
+        "open_drawer": false,
+        "find_note": false,
+        "find_diary": false,
+        "second_talked_Henry": false,
+        "get_code": false,
+        "has_lab_access": false
     }
   },
   "inventory": {

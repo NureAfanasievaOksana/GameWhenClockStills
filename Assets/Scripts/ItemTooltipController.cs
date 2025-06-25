@@ -8,7 +8,7 @@ public class ItemTooltipController : MonoBehaviour
     public TMP_Text tooltipText;
     public Image backgroundImage;
     public Vector2 padding = new Vector2(10, 50);
-    public float edgeMargin = 10f; // Відступ від країв екрану
+    public float edgeMargin = 10f;
 
     private RectTransform backgroundRect;
     private Camera mainCamera;
@@ -21,7 +21,6 @@ public class ItemTooltipController : MonoBehaviour
         tooltipPanel.SetActive(false);
         backgroundRect = backgroundImage.GetComponent<RectTransform>();
 
-        // Отримуємо Canvas для точного визначення масштабу
         parentCanvas = GetComponentInParent<Canvas>();
         if (parentCanvas != null)
         {
@@ -36,16 +35,13 @@ public class ItemTooltipController : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector2 tooltipSize = backgroundRect.sizeDelta * scaleFactor;
 
-        // Базовий офсет (праворуч і нижче курсора)
         Vector2 offset = new Vector2(15f, -15f);
 
-        // Визначаємо, чи виходить за межі екрану
         bool exceedsRight = mousePos.x + tooltipSize.x + offset.x > Screen.width - 150f;
         bool exceedsLeft = mousePos.x + offset.x < 0;
         bool exceedsBottom = mousePos.y + offset.y - tooltipSize.y < 0;
         bool exceedsTop = mousePos.y + offset.y > Screen.height;
 
-        // Коригуємо позицію
         if (exceedsRight)
         {
             offset.x = -tooltipSize.x - 185f;
@@ -64,7 +60,6 @@ public class ItemTooltipController : MonoBehaviour
             offset.y = -edgeMargin;
         }
 
-        // Фінальна позиція з урахуванням масштабу
         Vector2 finalPosition = mousePos + offset / scaleFactor;
         tooltipPanel.transform.position = finalPosition;
     }
@@ -81,11 +76,9 @@ public class ItemTooltipController : MonoBehaviour
 
         Canvas.ForceUpdateCanvases();
 
-        // Обчислюємо максимальну ширину (30% ширини екрану, але не більше 200px)
         float maxWidth = Mathf.Min(200f, Screen.width * 0.3f);
         Vector2 textSize = tooltipText.GetPreferredValues(message, maxWidth, 0f);
 
-        // Встановлюємо розміри
         tooltipText.rectTransform.sizeDelta = new Vector2(maxWidth, textSize.y);
         backgroundRect.sizeDelta = new Vector2(
             maxWidth + padding.x,
@@ -93,7 +86,7 @@ public class ItemTooltipController : MonoBehaviour
         );
 
         tooltipPanel.SetActive(true);
-        Update(); // Оновлюємо позицію відразу
+        Update();
     }
 
     public void HideTooltip()

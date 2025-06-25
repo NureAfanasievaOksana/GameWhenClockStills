@@ -24,27 +24,31 @@ public class PlayerSpawner : MonoBehaviour
         Vector2 spawnPosition = defaultSpawnPosition;
         bool shouldFlip = defaultFlipPlayer;
 
-        // Шукаємо точку появи
-        if (!string.IsNullOrEmpty(gameState.player.previous_location))
+        if (!string.IsNullOrEmpty(gameState.player.previous_location) &&
+            gameState.player.previous_location == gameState.player.current_location)
         {
-            foreach (var point in FindObjectsByType<SpawnPoint>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            spawnPosition = gameState.player.lastTransitionPosition;
+            shouldFlip = gameState.player.wasFlipped;
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(gameState.player.previous_location))
             {
-                if (point.fromLocation == gameState.player.previous_location)
+                foreach (var point in FindObjectsByType<SpawnPoint>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 {
-                    spawnPosition = point.transform.position;
-                    shouldFlip = point.flipPlayer;
-
-                    // Використовуємо rotation точки появи
-                    player.transform.rotation = point.transform.rotation;
-                    break;
+                    if (point.fromLocation == gameState.player.previous_location)
+                    {
+                        spawnPosition = point.transform.position;
+                        shouldFlip = point.flipPlayer;
+                        player.transform.rotation = point.transform.rotation;
+                        break;
+                    }
                 }
             }
         }
 
-        // Встановлюємо позицію та напрямок
         player.transform.position = spawnPosition;
 
-        // Якщо потрібно віддзеркалити спрайт
         SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
         if (playerSprite != null)
         {

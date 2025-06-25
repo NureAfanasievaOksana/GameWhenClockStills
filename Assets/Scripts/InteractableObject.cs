@@ -34,14 +34,20 @@ public class InteractableObject : MonoBehaviour
         // Перевірка станів взаємодії (Прибрати виведення тексту)
         if (item.is_completed && !item.repeatable)
         {
-            DialogueManager.Instance.ShowMessage("Ця взаємодія вже завершена");
+            CommentManager.Instance.ShowMessage("Ця взаємодія вже завершена");
             return;
         }
 
         // Перевірка умов розблокування (Прибрати виведення тексту)
         if (!CheckUnlockConditions(item.unlock_conditions))
         {
-            DialogueManager.Instance.ShowMessage("Я ще не знаю, що з цим робити...");
+            CommentManager.Instance.ShowMessage("Я ще не знаю, що з цим робити...");
+            return;
+        }
+
+        if (item.type == "time_device")
+        {
+            HandleTimeChange(item);
             return;
         }
 
@@ -49,7 +55,7 @@ public class InteractableObject : MonoBehaviour
         if (!CheckRequiredItems(item.required_items))
         {
             string missingItems = string.Join(", ", item.required_items.Except(gameState.inventory.items));
-            DialogueManager.Instance.ShowMessage($"Мені потрібно: {missingItems}");
+            CommentManager.Instance.ShowMessage($"Мені потрібно: {missingItems}");
             return;
         }
 
@@ -80,7 +86,7 @@ public class InteractableObject : MonoBehaviour
                 break;
 
             default:
-                DialogueManager.Instance.ShowMessage(item.description);
+                CommentManager.Instance.ShowMessage(item.description);
                 break;
         }
 
@@ -93,9 +99,30 @@ public class InteractableObject : MonoBehaviour
 
         foreach (string condition in conditions)
         {
-            var property = gameState.player.progress_flags.GetType().GetField(condition);
-            if (property == null || !(bool)property.GetValue(gameState.player.progress_flags))
+            var parts = condition.Split(' ');
+            if (parts.Length != 2)
+            {
+                Debug.LogWarning($"Invalid unlock condition format: {condition}");
                 return false;
+            }
+
+            string flagName = parts[0];
+            string expectedValue = parts[1];
+
+            var field = gameState.player.progress_flags.GetType().GetField(flagName);
+            if (field == null)
+            {
+                Debug.LogWarning($"Progress flag '{flagName}' not found");
+                return false;
+            }
+
+            bool flagValue = (bool)field.GetValue(gameState.player.progress_flags);
+            bool expectedBool = expectedValue.ToLower() == "true";
+
+            if (flagValue != expectedBool)
+            {
+                return false;
+            }
         }
         return true;
     }
@@ -111,27 +138,26 @@ public class InteractableObject : MonoBehaviour
     {
         gameState.inventory.items.Add(item.item_id);
         item.is_completed = true;
-        DialogueManager.Instance.ShowMessage($"Я взяв {item.name}");
+        CommentManager.Instance.ShowMessage($"Я взяв {item.name}");
         gameObject.SetActive(false);
     }
 
     private void HandleInspect(ItemData item)
     {
-        DialogueManager.Instance.ShowMessage(item.description);
+        CommentManager.Instance.ShowMessage(item.description);
     }
 
     //Прибрати виведення тексту
     private void HandleUse(ItemData item)
     {
-        DialogueManager.Instance.ShowMessage($"Використано {item.name}");
+        CommentManager.Instance.ShowMessage($"Використано {item.name}");
         item.is_completed = true;
     }
 
     private void HandleOpen(ItemData item)
     {
-        DialogueManager.Instance.ShowMessage($"Відкрито {item.name}");
+        CommentManager.Instance.ShowMessage($"Відкрито {item.name}");
         item.is_completed = true;
-        // Тут можна додати анімацію відкриття
     }
 
     private void HandleDoor(ItemData item)
@@ -144,14 +170,11 @@ public class InteractableObject : MonoBehaviour
 
     private IEnumerator HandleSceneTransition(string targetScene)
     {
-        // Зберігаємо стан
         gameState.player.previous_location = gameState.player.current_location;
         gameState.player.current_location = targetScene;
 
-        // Запускаємо FadeOut і чекаємо його завершення
         yield return StartCoroutine(SceneTransitionManager.Instance.FadeOutCoroutine());
 
-        // Лише після завершення - завантажуємо сцену
         SceneManager.LoadScene(targetScene);
     }
 
@@ -160,9 +183,19 @@ public class InteractableObject : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(item.target_time_period))
         {
+            var player = FindAnyObjectByType<PlayerController>();
+            if (player != null)
+            {
+                gameState.player.lastTransitionPosition = player.transform.position;
+                var spriteRenderer = player.GetComponent<SpriteRenderer>();
+                gameState.player.wasFlipped = spriteRenderer != null ? spriteRenderer.flipX : false;
+            }
+
             gameState.player.current_time_period = item.target_time_period;
-            DialogueManager.Instance.ShowMessage($"Час змінився на {item.target_time_period}");
-            // Тут можна додати ефект зміни часу
+            gameState.player.previous_location = gameState.player.current_location;
+            gameState.player.current_location = item.target_location;
+
+            StartCoroutine(HandleSceneTransition(item.target_location));
         }
     }
 
@@ -170,10 +203,24 @@ public class InteractableObject : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(item.progress_flag))
         {
-            var flag = gameState.player.progress_flags.GetType().GetField(item.progress_flag);
-            if (flag != null) flag.SetValue(gameState.player.progress_flags, true);
+            var flagsType = typeof(ProgressFlags);
+            var field = flagsType.GetField(item.progress_flag);
+
+            if (field != null)
+            {
+                field.SetValue(gameState.player.progress_flags, true);
+            }
+            else
+            {
+                Debug.LogWarning($"Progress flag '{item.progress_flag}' not found in ProgressFlags class");
+            }
         }
 
         DataManager.Instance.SaveGameState();
+    }
+
+    public ItemData GetItemData()
+    {
+        return database.GetItemById(itemId);
     }
 }

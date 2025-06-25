@@ -20,6 +20,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PresentLibrary.unity
     guid: 72a726b258dd9b349829da4e6045e08d
+  - enabled: 1
+    path: Assets/Scenes/PastCorridor.unity
+    guid: 9173256854b35da4ab4b599354c23566
+  - enabled: 1
+    path: Assets/Scenes/PastLibrary.unity
+    guid: 00a87e7b08d44df4c8205f9376f163fa
+  - enabled: 1
+    path: Assets/Scenes/PresentLaboratory.unity
+    guid: 7beea7441512d754694622ae8f72861f
+  - enabled: 1
+    path: Assets/Scenes/NoteScene.unity
+    guid: 775562d945cff4c40a404429f8dcab46
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 51770d2d9c1cb8c4ca0da7e1b6334286
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -2,9 +2,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class CommentManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    public static CommentManager Instance;
     public GameObject pocketClock;
 
     [SerializeField] private GameObject dialoguePanel;

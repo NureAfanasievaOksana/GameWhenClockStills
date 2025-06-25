@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &28304874
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &28304875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &79901657
 MonoBehaviour:
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &79901658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: corridor_door
+  itemId: corridor_door_past
   interactionDistance: 0.1
 --- !u!61 &83062270
 BoxCollider2D:
@@ -1519,6 +1519,8 @@ GameObject:
   m_Component:
   - component: {fileID: 420095099}
   - component: {fileID: 420095098}
+  - component: {fileID: 420095101}
+  - component: {fileID: 420095100}
   m_Layer: 0
   m_Name: Pocket watch_0 (1)
   m_TagString: Untagged
@@ -1596,6 +1598,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1178077358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &420095100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420095097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: pocket_watch_lib
+  interactionDistance: 1
+--- !u!58 &420095101
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420095097}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  m_Radius: 2.01
 --- !u!1 &432032333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +2021,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2356,7 +2408,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2475,7 +2527,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -2661,7 +2713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &653607684
 MonoBehaviour:
@@ -2675,7 +2727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &653607685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3330,6 +3382,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &884568311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884568312}
+  m_Layer: 0
+  m_Name: SpawPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884568312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884568311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1633061710}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &916999881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3528,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4129,7 +4213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &1285746650
 MonoBehaviour:
@@ -4143,7 +4227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &1285746651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4434,6 +4518,8 @@ MonoBehaviour:
         learned_about_diary: 0
         butler_appeared: 0
         found_time_device: 0
+      lastTransitionPosition: {x: 0, y: 0}
+      wasFlipped: 0
     inventory:
       items: []
 --- !u!4 &1386982521
@@ -4632,7 +4718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &1447676340
 MonoBehaviour:
@@ -4646,7 +4732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &1447676341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4969,7 +5055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
   interactionDistance: 0
 --- !u!114 &1520989493
 MonoBehaviour:
@@ -4983,7 +5069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: bookshelf
+  itemId: bookshelf_past
 --- !u!61 &1520989494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5085,6 +5171,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1633061709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1633061710}
+  - component: {fileID: 1633061711}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1633061710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633061709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.29, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884568312}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633061711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633061709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c715f2f0cae18ea43a7730c6bed419d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSpawnPosition: {x: -6.29, y: 0}
+  defaultFlipPlayer: 0
 --- !u!1 &1638639191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5162,7 +5294,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6012,7 +6144,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.34117648, g: 0.34117648, b: 0.34117648, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6474,6 +6606,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1948537065}
   - component: {fileID: 1948537064}
+  - component: {fileID: 1948537067}
+  - component: {fileID: 1948537066}
+  - component: {fileID: 1948537068}
   m_Layer: 0
   m_Name: dark-wood_73
   m_TagString: Untagged
@@ -6552,6 +6687,79 @@ Transform:
   - {fileID: 747952756}
   m_Father: {fileID: 1178077358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948537066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948537063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ecbaa2bb848ec4eacfe3ac06644354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: fireplace_past
+  interactionDistance: 0
+--- !u!61 &1948537067
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948537063}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.74}
+    newSize: {x: 0.96, y: 0.74}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.96, y: 0.74}
+  m_EdgeRadius: 0
+--- !u!114 &1948537068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948537063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eea98bb6249a69409eafb8893302014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: fireplace_past
 --- !u!1 &1974500999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6629,7 +6837,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1781815603, guid: a54f538109b759d4fb8031d003c5014d, type: 3}
-  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  m_Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6902,6 +7110,7 @@ SceneRoots:
   - {fileID: 138824322}
   - {fileID: 493586868}
   - {fileID: 1178077358}
+  - {fileID: 884568312}
   - {fileID: 1893311040}
   - {fileID: 768396997}
   - {fileID: 1386982521}
