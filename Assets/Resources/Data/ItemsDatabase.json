@@ -426,6 +426,18 @@
       "item_id": "pocket_watch_past_cor",
       "name": "Кишеньковий годинник",
       "description": "",
+      "type": "display",
+      "is_completed": false,
+      "repeatable": false,
+      "required_items": [],
+      "unlock_conditions": ["found_time_device true"],
+      "target_location": "",
+      "target_time_period": ""
+    },
+    {
+      "item_id": "pocket_watch_past_cor",
+      "name": "Кишеньковий годинник",
+      "description": "",
       "type": "time_device",
       "is_completed": false,
       "repeatable": true,
@@ -433,6 +445,18 @@
       "unlock_conditions": [],
       "target_location": "PastCorridor",
       "target_time_period": "past"
+    },
+    {
+      "item_id": "pocket_watch_cor",
+      "name": "Кишеньковий годинник",
+      "description": "",
+      "type": "display",
+      "is_completed": false,
+      "repeatable": false,
+      "required_items": [],
+      "unlock_conditions": ["found_time_device true"],
+      "target_location": "",
+      "target_time_period": ""
     },
     {
       "item_id": "pocket_watch_cor",
@@ -450,6 +474,18 @@
       "item_id": "pocket_watch_past_lib",
       "name": "Кишеньковий годинник",
       "description": "",
+      "type": "display",
+      "is_completed": false,
+      "repeatable": false,
+      "required_items": [],
+      "unlock_conditions": ["found_time_device true"],
+      "target_location": "",
+      "target_time_period": ""
+    },
+    {
+      "item_id": "pocket_watch_past_lib",
+      "name": "Кишеньковий годинник",
+      "description": "",
       "type": "time_device",
       "is_completed": false,
       "repeatable": true,
@@ -457,6 +493,18 @@
       "unlock_conditions": [],
       "target_location": "PastLibrary",
       "target_time_period": "past"
+    },
+    {
+      "item_id": "pocket_watch_lib",
+      "name": "Кишеньковий годинник",
+      "description": "",
+      "type": "display",
+      "is_completed": false,
+      "repeatable": false,
+      "required_items": [],
+      "unlock_conditions": ["found_time_device true"],
+      "target_location": "",
+      "target_time_period": ""
     },
     {
       "item_id": "pocket_watch_lib",

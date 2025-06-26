@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -34,10 +36,11 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (hit.collider.TryGetComponent<InteractableObject>(out var interactable))
                 {
-                    ItemData item = interactable.GetItemData();
-                    if (item != null && item.type == "time_device")
+                    List<ItemData> allItems = interactable.GetAllItemData();
+                    bool isTimeDevice = allItems.Any(item => item.type == "time_device");
+                    if (isTimeDevice)
                     {
-                        interactable.Interact();
+                        interactable.Interact(); // одразу викликаємо без руху
                         return;
                     }
 

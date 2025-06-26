@@ -6091,6 +6091,7 @@ Transform:
   - {fileID: 733757771}
   - {fileID: 1036920504}
   - {fileID: 481803431}
+  - {fileID: 1834421574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726506224
@@ -6489,12 +6490,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834421572}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.37, y: -3.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.56, y: -3.1399999, z: 0}
   m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1718988332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1834421575
 MonoBehaviour:
@@ -6510,7 +6511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: pocket_watch_past_cor
   interactionDistance: 1
-  objectToDisplay: {fileID: 0}
+  objectToDisplay: {fileID: 1834421572}
 --- !u!58 &1834421576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8120,7 +8121,6 @@ SceneRoots:
   - {fileID: 1143610982}
   - {fileID: 310108210}
   - {fileID: 1718988332}
-  - {fileID: 1834421574}
   - {fileID: 1632591096}
   - {fileID: 1366870377}
   - {fileID: 1111832898}

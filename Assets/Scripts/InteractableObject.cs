@@ -39,6 +39,19 @@ public class InteractableObject : MonoBehaviour
 
     public void Interact()
     {
+        List<ItemData> allItems = database.GetAllItemsById(itemId);
+        if (allItems != null)
+        {
+            foreach (ItemData item in allItems)
+            {
+                if (item.type == "time_device" && CheckUnlockConditions(item.unlock_conditions))
+                {
+                    HandleTimeChange(item);
+                    return;
+                }
+            }
+        }
+
         string selectedItem = InventoryManager.Instance.GetSelectedItem();
 
         if (selectedItem != null)
@@ -109,9 +122,6 @@ public class InteractableObject : MonoBehaviour
                 break;
             case "door":
                 HandleDoor(item);
-                break;
-            case "time_device":
-                HandleTimeChange(item);
                 break;
             case "dialogue":
                 HandleDialogue(item);
@@ -268,5 +278,10 @@ public class InteractableObject : MonoBehaviour
         {
             Debug.LogWarning($"No objectToDisplay assigned for display item {item.item_id}");
         }
+    }
+
+    public List<ItemData> GetAllItemData()
+    {
+        return database.GetAllItemsById(itemId);
     }
 }

@@ -8031,7 +8031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: pocket_watch_past_lib
   interactionDistance: 1
-  objectToDisplay: {fileID: 0}
+  objectToDisplay: {fileID: 2059841633}
 --- !u!58 &2059841637
 CircleCollider2D:
   m_ObjectHideFlags: 0

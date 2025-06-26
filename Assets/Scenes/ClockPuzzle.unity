@@ -524,9 +524,11 @@ GameObject:
   m_Component:
   - component: {fileID: 766980101}
   - component: {fileID: 766980102}
+  - component: {fileID: 766980104}
+  - component: {fileID: 766980103}
   m_Layer: 0
   m_Name: Gears1
-  m_TagString: Untagged
+  m_TagString: Gear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,6 +603,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &766980103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766980100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7b15e4298ed8d4799025d03b49801d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearId: 2
+  currentSlot:
+    slotTransform: {fileID: 0}
+    correctGearId: 
+    currentGear: {fileID: 0}
+--- !u!58 &766980104
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766980100}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0000009536743, y: 0.00000023841858}
+  m_Radius: 2.4
 --- !u!1 &1253926272
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,9 +666,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1253926273}
   - component: {fileID: 1253926274}
+  - component: {fileID: 1253926276}
+  - component: {fileID: 1253926275}
   m_Layer: 0
   m_Name: Gears0
-  m_TagString: Untagged
+  m_TagString: Gear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,6 +745,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1253926275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253926272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7b15e4298ed8d4799025d03b49801d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearId: 1
+  currentSlot:
+    slotTransform: {fileID: 0}
+    correctGearId: 
+    currentGear: {fileID: 0}
+--- !u!58 &1253926276
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253926272}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.00000011920929}
+  m_Radius: 1.805
 --- !u!1 &1305356670
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,9 +839,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1348008974}
   - component: {fileID: 1348008975}
+  - component: {fileID: 1348008977}
+  - component: {fileID: 1348008976}
   m_Layer: 0
   m_Name: Gears2
-  m_TagString: Untagged
+  m_TagString: Gear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,6 +918,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1348008976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348008973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7b15e4298ed8d4799025d03b49801d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gearId: 3
+  currentSlot:
+    slotTransform: {fileID: 0}
+    correctGearId: 
+    currentGear: {fileID: 0}
+--- !u!58 &1348008977
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348008973}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0000009536743, y: 0}
+  m_Radius: 2.3499997
 --- !u!1 &1508710355
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +1070,62 @@ Transform:
   - {fileID: 1348008974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973751467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973751469}
+  - component: {fileID: 1973751468}
+  m_Layer: 0
+  m_Name: GearPuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1973751468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973751467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6557c58e9b83d9478ef64914923efae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - slotTransform: {fileID: 2027812876}
+    correctGearId: 1
+    currentGear: {fileID: 0}
+  - slotTransform: {fileID: 1508710356}
+    correctGearId: 2
+    currentGear: {fileID: 0}
+  - slotTransform: {fileID: 1305356671}
+    correctGearId: 3
+    currentGear: {fileID: 0}
+  snapDistance: 1
+  nextScene: PastLibrary
+--- !u!4 &1973751469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973751467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16777344, y: -0.19323036, z: 0.040845204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027812875
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,3 +1167,4 @@ SceneRoots:
   - {fileID: 714810879}
   - {fileID: 1516314284}
   - {fileID: 1631465027}
+  - {fileID: 1973751469}
