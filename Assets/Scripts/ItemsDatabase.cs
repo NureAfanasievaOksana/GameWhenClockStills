@@ -23,6 +23,7 @@ public class ItemData
     public string target_location;
     public string target_time_period;
     public string inventory_image;
+    public string dialogue_id;
 }
 
 [System.Serializable]
@@ -42,6 +43,11 @@ public class ItemsDatabase
     }
 
     public List<ItemData> GetAllItemsById(string id)
+    {
+        return items.FindAll(item => item.item_id == id && item.type != "display");
+    }
+
+    public List<ItemData> GetAllItemsIncludingDisplay(string id)
     {
         return items.FindAll(item => item.item_id == id);
     }

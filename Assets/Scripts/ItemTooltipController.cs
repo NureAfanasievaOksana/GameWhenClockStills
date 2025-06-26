@@ -66,7 +66,7 @@ public class ItemTooltipController : MonoBehaviour
 
     public void ShowTooltip(string message)
     {
-        if (ExitGameController.IsConfirmationActive)
+        if (ExitGameController.IsConfirmationActive || DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive())
         {
             return;
         }

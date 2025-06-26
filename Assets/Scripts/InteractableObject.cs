@@ -9,6 +9,7 @@ public class InteractableObject : MonoBehaviour
 {
     public string itemId;
     public float interactionDistance = 1f;
+    public GameObject objectToDisplay;
 
     private ItemsDatabase database;
     private GameState gameState;
@@ -17,6 +18,16 @@ public class InteractableObject : MonoBehaviour
     {
         database = ItemsDatabase.LoadFromResources();
         gameState = DataManager.Instance.currentGameState;
+
+        var allItems = database.GetAllItemsIncludingDisplay(itemId);
+        foreach (var item in allItems)
+        {
+            if (item.type == "display")
+            {
+                CheckAndUpdateDisplayState(item);
+                break;
+            }
+        }
     }
 
     public Vector2 GetInteractionPoint()
@@ -82,28 +93,29 @@ public class InteractableObject : MonoBehaviour
 
     private void ExecuteInteraction(ItemData item)
     {
+        if (item.type == "display")
+        {
+            Debug.LogWarning("Display items should not be processed in ExecuteInteraction");
+            return;
+        }
+
         switch (item.type)
         {
             case "pickup":
                 HandlePickup(item);
                 break;
-
             case "inspect":
                 HandleInspect(item);
                 break;
-
-            case "open":
-                HandleOpen(item);
-                break;
-
             case "door":
                 HandleDoor(item);
                 break;
-
             case "time_device":
                 HandleTimeChange(item);
                 break;
-
+            case "dialogue":
+                HandleDialogue(item);
+                break;
             default:
                 CommentManager.Instance.ShowMessage(item.description);
                 break;
@@ -173,12 +185,6 @@ public class InteractableObject : MonoBehaviour
         CommentManager.Instance.ShowMessage(item.description);
     }
 
-    private void HandleOpen(ItemData item)
-    {
-        CommentManager.Instance.ShowMessage($"Відкрито {item.name}");
-        item.is_completed = true;
-    }
-
     private void HandleDoor(ItemData item)
     {
         if (!string.IsNullOrEmpty(item.target_location))
@@ -241,5 +247,26 @@ public class InteractableObject : MonoBehaviour
     public ItemData GetItemData()
     {
         return database.GetItemById(itemId);
+    }
+
+    private void HandleDialogue(ItemData item)
+    {
+        DialogueManager.Instance.StartDialogue(item.dialogue_id);
+    }
+
+    private void CheckAndUpdateDisplayState(ItemData item)
+    {
+        if (objectToDisplay != null)
+        {
+            bool shouldBeActive = CheckUnlockConditions(item.unlock_conditions);
+            objectToDisplay.SetActive(shouldBeActive);
+
+            Debug.Log($"Display object {objectToDisplay.name} set to {shouldBeActive} " +
+                     $"based on conditions for item {item.item_id}");
+        }
+        else
+        {
+            Debug.LogWarning($"No objectToDisplay assigned for display item {item.item_id}");
+        }
     }
 }

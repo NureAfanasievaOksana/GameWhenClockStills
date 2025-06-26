@@ -1,0 +1,322 @@
+{
+  "dialogues": [
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_intro",
+      "start_text": "О, вибачте... доброго дня. Перепрошую, а хто ви? Я вас тут не бачив раніше. Можливо, ви хтось із нових наукових студентів? Доктора Веллара зараз немає на місці.",
+      "options": [
+        {
+          "text": "Я… не зовсім впевнений. А ви хто?",
+          "next_dialogue": "henry_who_are_you",
+          "set_flag": null
+        },
+        {
+          "text": "Я… просто досліджую цей маєток.",
+          "next_dialogue": "henry_exploring",
+          "set_flag": null
+        },
+        {
+          "text": "Здається, я родич доктора Веллара.",
+          "next_dialogue": "henry_relative",
+          "set_flag": null
+        }
+      ],
+      "required_flag": "first_talked_Henry false"
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_who_are_you",
+      "start_text": "О, я Генрі. Працюю тут, так би мовити, третя рука доктора Веллара. Асистую з експериментами, спостереженнями, інколи просто варю каву – в залежності від дня.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": "first_talked_Henry true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_exploring",
+      "start_text": "Досліджуєте? Цікаво… Служба безпеки, може? Хоча виглядаєте ви не як інспектор. Втім, я б порадив бути обережним. Маєток буває... непередбачуваним.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": "first_talked_Henry true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_relative",
+      "start_text": "Справді? Я не знав, що у доктора Веллара ще є родичі.",
+      "options": [
+        {
+          "text": "Я дуже далекий родич. Ми ніколи не зустрічалися.",
+          "next_dialogue": "henry_long_relative",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_long_relative",
+      "start_text": "Так ось воно що… Ну, тоді вітаю у маєтку. Радий познайомитися з родиною доктора Веллара. Добре, що він не зовсім забув про сім’ю.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": "first_talked_Henry true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_main_options",
+      "start_text": "Щось цікавить? Можу відволіктися на кілька хвилин.",
+      "options": [
+        {
+          "text": "Ти давно працюєш із доктором Велларом?",
+          "next_dialogue": "henry_how_long",
+          "set_flag": null
+        },
+        {
+          "text": "Чим ти тут займаєшся?",
+          "next_dialogue": "henry_what_do_you_do",
+          "set_flag": "learn_about_diary true"
+        },
+        {
+          "text": "Як ти сюди потрапив?",
+          "next_dialogue": "henry_how_came",
+          "set_flag": null
+        },
+        {
+          "text": "Дякую, бувай",
+          "next_dialogue": null,
+          "set_flag": null
+        }
+      ],
+      "required_flag": "first_talked_Henry true"
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_how_long",
+      "start_text": "Досить давно. Спершу був захоплений ідеями, потім – машинами. А тепер, здається, сам став частиною всього цього... І знаєш, чим довше ти тут, тим менше питаєш 'чому?' і більше – 'коли?'",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_what_do_you_do",
+      "start_text": "Я... тут, так би мовити, допомагаю з дослідженнями. Щоправда, я трохи розгублений останні дні. Не можу знайти свій щоденник – там були важливі записи...",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_how_came",
+      "start_text": "Це довга історія. Колись я був просто студентом, а потім… на одній з лекцій, я побачив один з його прототипів. І вже не міг піти. Його ідеї були... як магніт. Неможливо було не захотіти стати частиною цих шалених, але геніальних задумів.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "henry_main_options",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_intro",
+      "start_text": "Ах… ще одне нове обличчя. Не надто часто в нас гості останнім часом. Дозвольте запитати — хто ви, сер?",
+      "options": [
+        {
+          "text": "Я просто... заблукав. Випадково натрапив на бібліотеку.",
+          "next_dialogue": "albert_lost",
+          "set_flag": null
+        },
+        {
+          "text": "Мене звати Нік. Я далекий родич доктора Веллара.",
+          "next_dialogue": "albert_relative",
+          "set_flag": null
+        },
+        {
+          "text": "Я тут, щоб дослідити маєток. Мене цікавить його історія.",
+          "next_dialogue": "albert_exploring",
+          "set_flag": null
+        }
+      ],
+      "required_flag": "talked_buttler false"
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_lost",
+      "start_text": "Заблукали? Ви не перші. Маєток полюбляє провадити людей своїми шляхами. Але бібліотека – місце особливе. Тут слід говорити тихо. Навіть думки тут залишають відлуння.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "albert_main_options",
+          "set_flag": "talked_buttler true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_relative",
+      "start_text": "Родич, кажете? Вражає. Доктор Веллар не розповідав, що має родичів. Що ж, радий вас бачити, сер.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "albert_main_options",
+          "set_flag": "talked_buttler true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_exploring",
+      "start_text": "А, дослідник? Маєток справді має чим поділитися... хоча більшість його таємниць воліють залишатися нерозкритими.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "albert_main_options",
+          "set_flag": "talked_buttler true"
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_main_options",
+      "start_text": "Чи можу я вам чимось допомогти, сер?",
+      "options": [
+        {
+          "text": "Ця кімната здається мені знайомою. Ви давно тут працюєте?",
+          "next_dialogue": "albert_how_long",
+          "set_flag": null
+        },
+        {
+          "text": "Генрі шукає записник. Можливо ви можете підказати, де він може бути?",
+          "next_dialogue": "albert_notebook",
+          "set_flag": "learn_about_code true"
+        },
+        {
+          "text": "Дякую, бувайте.",
+          "next_dialogue": null,
+          "set_flag": null
+        }
+      ],
+      "required_flag": "talked_buttler true"
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_how_long",
+      "start_text": "Я служу цьому маєтку понад три десятки років. Бачив зміну епох . Але повірте: попри все, бібліотека лишається серцем цього місця. І свідком багатьох історій.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "albert_main_options",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "albert",
+      "dialogue_id": "albert_notebook",
+      "start_text": "Так, пан Генрі нещодавно був тут. Виглядав занепокоєним. Якщо шукає свій щоденник – зазвичай він ховає його у сейфі, що вмонтований у панель біля каміна. Але код… він завжди залишає його в нотатці, яку кладе в шухляду свого письмового стола.",
+      "options": [
+        {
+          "text": "...",
+          "next_dialogue": "albert_main_options",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_return_notebook",
+      "start_text": "О… ти його знайшов?! Я вже думав, що нотатки втрачені назавжди. Дякую. Справді. Без цього ми б не змогли б продовжити.",
+      "options": [
+        {
+          "text": "Що саме ви досліджуєте? Якщо не секрет.",
+          "next_dialogue": "henry_research",
+          "set_flag": null
+        }
+      ],
+      "required_flag": "find_diary true"
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_research",
+      "start_text": "Ми… намагаємось зрозуміти, як поводиться час. Чи можливо якось зафіксувати його зміщення, чи навіть спричинити його штучно. На жаль, поки що – лише гіпотези.",
+      "options": [
+        {
+          "text": "Тобто ви намагаєтеся дослідити подорожі в часі?",
+          "next_dialogue": "henry_time_travel",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_time_travel",
+      "start_text": "Поки ми навіть не впевнені, чи час взагалі можна \"перетнути\". Але ми спробували сконструювати пристрій, що, теоретично, здатен уловити часові розриви – кишеньковий годинник. Саме тому я так панікував через щоденник. Ми готуємось провести перший експеримент — лише теоретичний запуск. Ніяких подорожей, якщо чесно. Лише спроба встановити контакт із часовим зміщенням, якщо воно взагалі існує.",
+      "options": [
+        {
+          "text": "Цікаво",
+          "next_dialogue": "henry_note",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_note",
+      "start_text": "О... зачекай. У щоденнику між сторінками був якийсь аркуш… Він точно не мій. Тут написаний чотиризначний код і слово «Лабораторія». Дивно. У нас немає систем із кодовими замками...",
+      "options": [
+        {
+          "text": "Чи можу я його забрати?",
+          "next_dialogue": "henry_give_code",
+          "set_flag": null
+        }
+      ],
+      "required_flag": null
+    },
+    {
+      "npc_id": "henry",
+      "dialogue_id": "henry_give_code",
+      "start_text": "Звичайно. Якщо він потрапив до тебе – значить, маєш на це причину. Але... будь обережний, Нік. У цьому будинку відповіді ніколи не з'являються просто так.",
+      "options": [
+        {
+          "text": "Дякую, бувай!",
+          "next_dialogue": null,
+          "set_flag": "get_code true"
+        }
+      ],
+      "required_flag": null
+    }
+  ]
+}

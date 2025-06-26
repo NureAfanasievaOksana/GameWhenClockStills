@@ -116,12 +116,6 @@ public class GameItems
 }
 
 [Serializable]
-public class DialogueData
-{
-    public Dictionary<string, NPCDialogue> npc_dialogues = new Dictionary<string, NPCDialogue>();
-}
-
-[Serializable]
 public class LocationStates
 {
     public Dictionary<string, LocationData> locations = new Dictionary<string, LocationData>();
